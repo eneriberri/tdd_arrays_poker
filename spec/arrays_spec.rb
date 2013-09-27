@@ -30,19 +30,28 @@ describe Array do
   end
 
   describe "#my_transpose" do
-    it "should return transpose of self" do
-      rows = [
+    subject(:rows) do
+      [
         [0, 1, 2],
         [3, 4, 5],
         [6, 7, 8]
       ]
+    end
+
+    it "should return transpose of self" do
+
       cols = [
         [0, 3, 6],
         [1, 4, 7],
         [2, 5, 8]
       ]
 
-      rows
+      rows.my_transpose.should == cols
     end
+
+    it "should not return itself" do
+      rows.my_transpose.should_not == rows
+    end
+
   end
 end

@@ -18,4 +18,16 @@ class Array
       end
     end
   end
+
+  def my_transpose
+    transpose = []
+    self.each_index do |row_idx|
+      col = []
+      self.each do |row|
+        col << row[row_idx]
+      end
+      transpose << col
+    end
+    transpose
+  end
 end
