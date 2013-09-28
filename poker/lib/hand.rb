@@ -64,12 +64,7 @@ class Hand
   end
 
   def <=>(other_hand)
-    comp = WEIGHT[self.result] <=> WEIGHT[other_hand.result]
-    if comp == 0
-      #
-    else
-      comp
-    end
+    WEIGHT[self.result] <=> WEIGHT[other_hand.result]
   end
 
 

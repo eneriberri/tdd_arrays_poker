@@ -519,6 +519,24 @@ describe Hand do
 
     describe "comparing tying hands" do
 
+      describe "royal flush" do
+        let(:other_royal_flush_hand) do
+          other_royal_flush_hand = Hand.new
+          other_royal_flush_hand.add_card(double("card 1", :value => 10, :suit => Card::CLUB))
+          other_royal_flush_hand.add_card(double("card 2", :value => 12, :suit => Card::CLUB))
+          other_royal_flush_hand.add_card(double("card 3", :value => 11, :suit => Card::CLUB))
+          other_royal_flush_hand.add_card(double("card 4", :value => 1, :suit => Card::CLUB))
+          other_royal_flush_hand.add_card(double("card 5", :value => 13, :suit => Card::CLUB))
+
+          other_royal_flush_hand
+        end
+
+        it "should be draw" do
+          expect(royal_flush_hand <=> other_royal_flush_hand).to eq 0
+        end
+      end
+
+
     end
   end
 end
